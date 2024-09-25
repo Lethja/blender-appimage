@@ -7,11 +7,11 @@ download_and_verify() {
 	local fileUri="$1"
 	local hashUri="$2"
 
-  if [ -n "$hashUri" ]; then
-    if [ ! -f "${hashUri##*/}" ]; then
-      echo "Downloading $hashUri..."
-      wget -O "${hashUri##*/}" "$hashUri"
-    fi
+	if [ -n "$hashUri" ]; then
+		if [ ! -f "${hashUri##*/}" ]; then
+			echo "Downloading $hashUri..."
+			wget -O "${hashUri##*/}" "$hashUri"
+		fi
 	fi
 
 	if [ ! -f "${fileUri##*/}" ]; then
@@ -19,9 +19,9 @@ download_and_verify() {
 		wget -O "${fileUri##*/}" "$fileUri"
 	fi
 
-  if [ -n "$hashUri" ]; then
-    grep " ${fileUri##*/}$" "${hashUri##*/}" | sha256sum -c -
-  fi
+	if [ -n "$hashUri" ]; then
+		grep " ${fileUri##*/}$" "${hashUri##*/}" | sha256sum -c -
+	fi
 }
 
 create_apprun_script() {
@@ -57,17 +57,17 @@ tar -xf "$TAR_NAME" -C AppDir --strip-components=1
 echo "Reconfiguring files in preparation for AppImage..."
 
 if [[ -f "AppDir/blender-launcher" ]]; then
-  create_apprun_script "AppDir/AppRun" "blender-launcher"
+	create_apprun_script "AppDir/AppRun" "blender-launcher"
 else
-  create_apprun_script "AppDir/AppRun" "blender"
+	create_apprun_script "AppDir/AppRun" "blender"
 fi
 
 if [[ $TAR_NAME =~ (x64|x86_64) ]]; then
-  ARCH=x86_64
-  OUTPUT="${TAR_NAME%-linux*}-x86_64.AppImage"
+	ARCH=x86_64
+	OUTPUT="${TAR_NAME%-linux*}-x86_64.AppImage"
 elif [[ $TAR_NAME =~ (i686) ]]; then
-  ARCH=i686
-  OUTPUT="${TAR_NAME%-linux*}-i686.AppImage"
+	ARCH=i686
+	OUTPUT="${TAR_NAME%-linux*}-i686.AppImage"
 fi
 
 # Add X- in front of desktop entries to make appimage happy
@@ -78,7 +78,7 @@ echo "Creating AppImage $OUTPUT..."
 "./${AppImageUri##*/}" -n AppDir "$OUTPUT"
 
 if [[ ! -f "$OUTPUT" ]]; then
-  exit 1
+	exit 1
 fi
 
 echo "Zipping $OUTPUT into ${OUTPUT}.zip..."
