@@ -10,17 +10,19 @@ download_and_verify() {
 	if [ -n "$hashUri" ]; then
 		if [ ! -f "${hashUri##*/}" ]; then
 			echo "Downloading $hashUri..."
-			wget -O "${hashUri##*/}" "$hashUri"
+			wget -O "${hashUri##*/}" "$hashUri" || exit 1
 		fi
 	fi
 
 	if [ ! -f "${fileUri##*/}" ]; then
 		echo "Downloading $fileUri..."
-		wget -O "${fileUri##*/}" "$fileUri"
+		wget -O "${fileUri##*/}" "$fileUri" || exit 1
 	fi
 
 	if [ -n "$hashUri" ]; then
-		grep " ${fileUri##*/}$" "${hashUri##*/}" | sha256sum -c -
+	  local hashName="${hashUri##*/}"
+	  local hashExt="${hashName##*.}"
+		grep " ${fileUri##*/}$" "$hashName" | "${hashExt}sum" -c - || exit 1
 	fi
 }
 
@@ -37,7 +39,7 @@ EOF
 echo "Downloading and verifying content"
 
 download_and_verify "$AppImageUri"
-echo "$AppImageHash  ${AppImageUri##*/}" | sha256sum -c -
+echo "$AppImageHash  ${AppImageUri##*/}" | sha256sum -c - || exit 1
 chmod +x "${AppImageUri##*/}"
 
 download_and_verify "$2" "$1"
@@ -52,7 +54,7 @@ if [ -e "AppDir" ]; then
 fi
 
 mkdir -p AppDir
-tar -xf "$TAR_NAME" -C AppDir --strip-components=1
+tar -xf "$TAR_NAME" -C AppDir --strip-components=1 || exit 1
 
 echo "Reconfiguring files in preparation for AppImage..."
 
