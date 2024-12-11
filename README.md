@@ -1,5 +1,5 @@
 # Summary
-If you need to run a version of Blender on Linux that isn't in your distributions repositoryDownload and extract the zip then double-click on the extracted AppImage to run 
+If you need to run a version of Blender on Linux that isn't in your distributions repository 
 it can be cumbersome to run, especially for rolling distributions where the system version of Python can change. 
 While Blenders website offers portable versions for Linux in a tarball, 
 extracting these tarballs somewhere and maintaing a path hierarchy is also less than ideal.
