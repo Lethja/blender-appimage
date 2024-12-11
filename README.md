@@ -17,6 +17,8 @@ Download and extract the zip then double-click on the extracted AppImage to run.
 Releases specify the date the AppImage is built rather than the version of Blender.
 If a new version of Blender comes out then a new release will be made with just that version.
 If there's a change to the script than there will be a new release with the latest of each LTS version.
+This means you may need to look through a few releases to find older versions of Blender
+if the script hasn't been updated in a while.
 
 # Build yourself
 ## Dependencies
