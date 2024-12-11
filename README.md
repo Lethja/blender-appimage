@@ -1,19 +1,22 @@
 # Summary
-If you need to run a version of Blender on Linux that isn't in your distribution repository, 
-it can be cumbersome to run especially for rolling distributions where the system version of python can change. 
+If you need to run a version of Blender on Linux that isn't in your distributions repositoryDownload and extract the zip then double-click on the extracted AppImage to run 
+it can be cumbersome to run, especially for rolling distributions where the system version of Python can change. 
 While Blenders website offers portable versions for Linux in a tarball, 
-extracting these tarballs somewhere in your home directory 
-where a directory hierarchy must be maintained is also less than ideal.
+extracting these tarballs somewhere and maintaing a path hierarchy is also less than ideal.
 
 This repository contains two small bash scripts that download official Linux tarball releases of Blender LTS 
 and converts it into an easy to use AppImage. 
 
 Using an AppImage is as easy as extracting the zip somewhere and double-clicking it.
-For more information visit https://appimage.org/
+For more information on how AppImages work visit https://appimage.org/
 
 # Download
 Appimage builds are available on the [Releases](https://github.com/Lethja/blender-appimage/releases) page.
-Download and extract the zip then double-click on the extracted appimage to run
+Download and extract the zip then double-click on the extracted AppImage to run.
+
+Releases specify the date the AppImage is built rather than the version of Blender.
+If a new version of Blender comes out then a new release will be made with just that version.
+If there's a change to the script than there will be a new release with the latest of each LTS version.
 
 # Build yourself
 ## Dependencies
