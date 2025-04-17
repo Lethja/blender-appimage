@@ -17,11 +17,11 @@ https://download.blender.org/release/Blender2.93/blender-2.93.18-linux-x64.tar.x
 manifest[4]="https://download.blender.org/release/Blender3.3/blender-3.3.21.sha256 \
 https://download.blender.org/release/Blender3.3/blender-3.3.21-linux-x64.tar.xz"
 
-manifest[5]="https://download.blender.org/release/Blender3.6/blender-3.6.21.sha256 \
-https://download.blender.org/release/Blender3.6/blender-3.6.21-linux-x64.tar.xz"
+manifest[5]="https://download.blender.org/release/Blender3.6/blender-3.6.22.sha256 \
+https://download.blender.org/release/Blender3.6/blender-3.6.22-linux-x64.tar.xz"
 
-manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.8.sha256 \
-https://download.blender.org/release/Blender4.2/blender-4.2.8-linux-x64.tar.xz"
+manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.9.sha256 \
+https://download.blender.org/release/Blender4.2/blender-4.2.9-linux-x64.tar.xz"
 
 MAX=7 # Total number of manifest entries
 
