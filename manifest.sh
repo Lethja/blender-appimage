@@ -20,8 +20,8 @@ https://download.blender.org/release/Blender3.3/blender-3.3.21-linux-x64.tar.xz"
 manifest[5]="https://download.blender.org/release/Blender3.6/blender-3.6.22.sha256 \
 https://download.blender.org/release/Blender3.6/blender-3.6.22-linux-x64.tar.xz"
 
-manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.9.sha256 \
-https://download.blender.org/release/Blender4.2/blender-4.2.9-linux-x64.tar.xz"
+manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.10.sha256 \
+https://download.blender.org/release/Blender4.2/blender-4.2.10-linux-x64.tar.xz"
 
 MAX=7 # Total number of manifest entries
 
