@@ -42,17 +42,18 @@ to find older versions of Blender
 if `mkAppImg.sh` hasn't been updated in a while.
 
 ## End of Life LTS
-These versions of Blender are no longer supported.
-They still work but will not get any further official updates.
+These versions of Blender are no longer supported by the Blender Foundation.
+They still work but are unlikely to get any further official updates
+from the Blender Foundation.
 
-| Download                                                                                                                         | MD5                                | SHA256                                                             |
-|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|--------------------------------------------------------------------|
-| [Blender LTS 3.6.23](https://github.com/Lethja/blender-appimage/releases/download/2025-06-19/blender-3.6.23-x86_64.AppImage.zip) | `9f6f389170820f31160a7d8afc3965c8` | `2080ec100f971f2effd6759d7210b0a8c5ab0a47f70dc95d96c264f5eca39749` |
-| [Blender LTS 3.3.21](https://github.com/Lethja/blender-appimage/releases/download/2024-09-22/blender-3.3.21-x86_64.AppImage.zip) | `e81a7ef601cbfb43713ed703a4f392e9` | `72426847aaeeaaf541be838ae32e0031ef4c6ff76650ee99abf2231c6eaacbae` |
-| [Blender 2.93.18](https://github.com/Lethja/blender-appimage/releases/download/2024-09-22/blender-2.93.18-x86_64.AppImage.zip)   | `3baece4e3180bf16523e79d335fa3ec7` | `9a1829d9e44575ead149cdeeea77c209a02deabafd97639c5fbef329cb587d55` |
-| [Blender 2.83.20](https://github.com/Lethja/blender-appimage/releases/download/2024-09-22/blender-2.83.20-x86_64.AppImage.zip)   | `36efde5884f424dc25f098dc78aa43ed` | `3ebb49d63d5237bbbb4f7ad5da99fba70451c38deb44a137006f1a998c4e9520` |
-| [Blender 2.79b](https://github.com/Lethja/blender-appimage/releases/download/2024-09-22/blender-2.79b-x86_64.AppImage.zip)       | `bac263c0731d0501fa85cb03e676ffc2` | `f7a0f978e688eeb7c9e9cc2057db3f2a841eb52780f8b350998863dc7a2bb100` |
-| [Blender 2.79b (i686)](https://github.com/Lethja/blender-appimage/releases/download/2024-09-22/blender-2.79b-i686.AppImage.zip)  | `dd1a207ecd3bf15f38276cf78bb01267` | `49779cc2a12abdd1669a44340a8fd248e6341acbb9b250203efd260b87e230ae` |
+| Download                                                                                                                           | SHA256                                                             |
+|------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| [Blender LTS 3.6.23](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-3.6.23-x86_64.AppImage.zip)   | `d6af2f8cd01ac71684f50332bf31e2485141bbd65c03524a47145865591b8cdf` |
+| [Blender LTS 3.3.21](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-3.3.21-x86_64.AppImage.zip)   | `43d39c9fdbd965b2d3e83a889b0a2a0fbacdbefcda1be77be3257e669273d8d1` |
+| [Blender LTS 2.93.18](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.93.18-x86_64.AppImage.zip) | `c0219c0c6fda994a447b4a6259e799719c1d14829447e322f34342a996da78ed` |
+| [Blender LTS 2.83.20](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.83.20-x86_64.AppImage.zip) | `100be04e06447f61493b59d91e413d4333ec5264ce6c4cc61e13ded0ad3488be` |
+| [Blender 2.79b](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.79b-x86_64.AppImage.zip)         | `66d5daa899dcda892cdf3228257b1d57b9ff5ff3e85aa1a9e31201c9cd6dbe41` |
+| [Blender 2.79b (i686)](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.79b-i686.AppImage.zip)    | `ef947b25f307d61c64b8f77a7bbe06927edf983ebb4ad7fb32fec23dd9b177ca` |
 
 
 ## Troubleshooting
