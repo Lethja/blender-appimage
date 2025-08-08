@@ -1,7 +1,36 @@
 #!/bin/bash
 
-AppImageUri="https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage"
-AppImageHash="df3baf5ca5facbecfc2f3fa6713c29ab9cefa8fd8c1eac5d283b79cab33e4acb"
+download_runtime() {
+  local pubUri="https://github.com/AppImage/type2-runtime/releases/download/continuous/signing-pubkey.asc"
+  local runUri="https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-$1"
+  local sigUri="$runUri.sig"
+  local gpgDir="gpg"
+
+  if [ -n "$pubUri" ]; then
+    if [ ! -f "${pubUri##*/}" ]; then
+      echo "Downloading $pubUri..."
+      wget -O "${pubUri##*/}" "$pubUri" || exit 1
+    fi
+  fi
+  if [ ! -d "$gpgDir" ]; then
+    mkdir -p $gpgDir
+    chmod 700 $gpgDir
+    GNUPGHOME="$gpgDir" gpg --quiet --import "${pubUri##*/}"
+  fi
+  if [ -n "$sigUri" ]; then
+    if [ ! -f "${sigUri##*/}" ]; then
+      echo "Downloading $sigUri..."
+      wget -O "${sigUri##*/}" "$sigUri" || exit 1
+    fi
+  fi
+  if [ -n "$runUri" ]; then
+    if [ ! -f "${runUri##*/}" ]; then
+      echo "Downloading $sigUri..."
+      wget -O "${runUri##*/}" "$runUri" || exit 1
+    fi
+  fi
+  GNUPGHOME="$gpgDir" gpg --verify "${sigUri##*/}" "${runUri##*/}" || exit 1
+}
 
 download_and_verify() {
 	local fileUri="$1"
@@ -38,13 +67,19 @@ EOF
 
 echo "Downloading and verifying content"
 
-download_and_verify "$AppImageUri"
-echo "$AppImageHash  ${AppImageUri##*/}" | sha256sum -c - || exit 1
-chmod +x "${AppImageUri##*/}"
+TAR_NAME="${2##*/}"
+
+if [[ $TAR_NAME =~ (x64|x86_64) ]]; then
+	ARCH=x86_64
+	OUTPUT="${TAR_NAME%-linux*}-x86_64.AppImage"
+elif [[ $TAR_NAME =~ (i686) ]]; then
+	ARCH=i686
+	OUTPUT="${TAR_NAME%-linux*}-i686.AppImage"
+fi
+
+download_runtime "$ARCH"
 
 download_and_verify "$2" "$1"
-
-TAR_NAME="${2##*/}"
 
 echo "Extracting $TAR_NAME"
 
@@ -64,24 +99,17 @@ else
 	create_apprun_script "AppDir/AppRun" "blender"
 fi
 
-if [[ $TAR_NAME =~ (x64|x86_64) ]]; then
-	ARCH=x86_64
-	OUTPUT="${TAR_NAME%-linux*}-x86_64.AppImage"
-elif [[ $TAR_NAME =~ (i686) ]]; then
-	ARCH=i686
-	OUTPUT="${TAR_NAME%-linux*}-i686.AppImage"
-fi
-
 # Add X- in front of desktop entries to make appimage happy
 sed -i 's/PrefersNonDefaultGPU/X-PrefersNonDefaultGPU/' "AppDir/blender.desktop"
 
 echo "Creating AppImage $OUTPUT..."
 
-"./${AppImageUri##*/}" -n AppDir "$OUTPUT"
+mksquashfs AppDir squashfs -noappend -comp gzip || exit 1
+cat "runtime-$ARCH" squashfs > "$OUTPUT" || exit 1
 
-if [[ ! -f "$OUTPUT" ]]; then
-	exit 1
-fi
+if [[ ! -f "$OUTPUT" ]]; then exit 1; fi
+
+chmod +x "$OUTPUT"
 
 echo "Zipping $OUTPUT into ${OUTPUT}.zip..."
 
@@ -89,6 +117,6 @@ zip -0 "${OUTPUT}.zip" "$OUTPUT"
 
 echo "Cleaning up..."
 
-rm -R AppDir "$OUTPUT"
+rm -R AppDir squashfs "$OUTPUT"
 
 echo "$OUTPUT successfully made and stored in ${OUTPUT}.zip"
