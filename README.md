@@ -106,6 +106,10 @@ Select options by numbers separated by space or a letter:
 Type the number(s) of the Blender version(s) to make an AppImage of
 and press enter.
 
+For example, typing `0 6 5` to the list above will build an AppImage
+of `blender-2.79b-linux-glibc219-i686`, `blender-4.2.2-linux-x64` 
+and `blender-3.6.16-linux-x64` in that order. 
+
 The AppImage will be created and stored in a zip automatically.
 Storing an AppImage in a zip archive
 will preserve the files executable permission.
@@ -114,9 +118,12 @@ and feel more familiar to macOS and Windows users.
 
 ## Build an unlisted version
 
+Due to the sheer number of releases Blender has
+`manifest.sh` will only list the latest version in each LTS release
+as listing every build ever would be impractical.
+
 To create an AppImage of a Blender version
-not included in the manifest script's predefined list
-(such as experimental or archived Blender releases),
+not listed by `manifest.sh` (such as experimental or archived Blender releases),
 provide the URL for the hash checksum and the source tarball
 directly to `mkAppImg.sh`.
 
@@ -124,4 +131,12 @@ Example:
 
 ```shell
 ./mkAppImg.sh https://download.blender.org/release/Blender2.79/release279.md5 https://download.blender.org/release/Blender2.79/blender-2.79-linux-glibc219-x86_64.tar.bz2
+```
+
+You can also use this method to access an alternative mirror
+if the default `download.blender.org` is not accessible or missing a file.
+
+Example:
+```shell
+./mkAppImg.sh https://download.blender.org/release/Blender4.5/blender-4.5.5.sha256 https://ftp.halifax.rwth-aachen.de/blender/release/Blender4.2/blender-4.5.5-linux-x64.tar.xz
 ```
