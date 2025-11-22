@@ -1,0 +1,76 @@
+name: Create All
+
+on: workflow_dispatch
+
+jobs:
+  Manifest:
+    name: Build AppImages in Manifest
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download AppImage Builder program
+        run: |
+          ./dlAppImg.sh
+
+      - name: Create All AppImages
+        run: |
+          ./manifest.sh a
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'AppImages'
+          path: |
+            zip/*.zip
+          compression-level: 0
+
+  Draft:
+    name: Draft Release
+    needs: Manifest
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      actions: read
+
+    env:
+      TZ: GMT
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Create Draft Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          day=$(date '+%-d')
+          month=$(date '+%B')
+          year=$(date '+%Y')
+
+          if [[ $day -eq 11 || $day -eq 12 || $day -eq 13 ]]; then
+            suffix="th"
+          else
+            case $((day % 10)) in
+              1) suffix="st" ;;
+              2) suffix="nd" ;;
+              3) suffix="rd" ;;
+              *) suffix="th" ;;
+            esac
+          fi
+
+          NOTES="Blender AppImages built on the ${day}${suffix} of ${month} ${year}"
+          TAG_NAME=$(date -I)
+
+          gh release create "$TAG_NAME" \
+            --draft \
+            --title "$TAG_NAME" \
+            --notes "$NOTES" \
+            AppImages/*.zip
