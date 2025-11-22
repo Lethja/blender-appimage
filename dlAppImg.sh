@@ -1,7 +1,7 @@
 #!/bin/bash
 
-: "${ARCH:=x86_64}" # This is the hosts architecture, not the appimage runtimes
-: "${NAME:=appimagetool-$ARCH.AppImage}"
+: "${MARCH:=$(uname -m)}" # This is the host machines architecture, not the appimage runtime
+: "${NAME:=appimagetool-$MARCH.AppImage}"
 
 if [ -f "$NAME" ]; then exit 0; fi
 
