@@ -26,41 +26,19 @@ For more information on how AppImages work, visit https://appimage.org/
 
 # Download
 
-## Latest LTS
+AppImage builds are created 
+using a [GitHub workflow](.github/workflows/manifest.yml) and are available
+on the [Releases](https://github.com/Lethja/blender-appimage/releases) page.
 
-The latest AppImage builds are available on the
-[Releases](https://github.com/Lethja/blender-appimage/releases) page.
 Download and extract the zip,
 then double-click on the extracted AppImage to run.
 
-Releases specify the date the AppImage is built
+The release title specifies the date the AppImage is built
 rather than the version of Blender.
-If a new version of Blender comes out,
-then a new release will be made with just that version.
-If there's a change to the script,
-then there will be a new release with the latest of each LTS version.
-This means you may need to look through older releases
-to find older versions of Blender
-if `mkAppImg.sh` hasn't been updated in a while.
-
-## End of Life LTS
-These versions of Blender are no longer supported by the Blender Foundation.
-They still work but are unlikely to get any further official updates
-from the Blender Foundation.
-
-| Download                                                                                                                           | SHA256                                                             |
-|------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| [Blender LTS 3.6.23](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-3.6.23-x86_64.AppImage.zip)   | `d6af2f8cd01ac71684f50332bf31e2485141bbd65c03524a47145865591b8cdf` |
-| [Blender LTS 3.3.21](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-3.3.21-x86_64.AppImage.zip)   | `43d39c9fdbd965b2d3e83a889b0a2a0fbacdbefcda1be77be3257e669273d8d1` |
-| [Blender LTS 2.93.18](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.93.18-x86_64.AppImage.zip) | `c0219c0c6fda994a447b4a6259e799719c1d14829447e322f34342a996da78ed` |
-| [Blender LTS 2.83.20](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.83.20-x86_64.AppImage.zip) | `100be04e06447f61493b59d91e413d4333ec5264ce6c4cc61e13ded0ad3488be` |
-| [Blender 2.79b](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.79b-x86_64.AppImage.zip)         | `66d5daa899dcda892cdf3228257b1d57b9ff5ff3e85aa1a9e31201c9cd6dbe41` |
-| [Blender 2.79b (i686)](https://github.com/Lethja/blender-appimage/releases/download/2025-08-08/blender-2.79b-i686.AppImage.zip)    | `ef947b25f307d61c64b8f77a7bbe06927edf983ebb4ad7fb32fec23dd9b177ca` |
-
 
 ## Troubleshooting
 ### Fuse
-If you can't open the AppImage make sure `libfuse.so.2`
+If you can't open an AppImage make sure `libfuse.so.2`
 is installed in your system.
 If you can't or won't install `libfuse.so.2` you can extract the AppImage
 with the parameter `--appimage-extract`.
@@ -76,7 +54,7 @@ You will need a Linux machine to build an AppImage
 On a terminal run the following to make sure scripts dependencies are installed
 
 ```shell
-which cat echo gpg md5sum mksquashfs sed sha256sum tar wget zip > /dev/null
+which cat echo md5sum sed sha256sum tar wget zip > /dev/null
 ```
 
 The command will exit without printing anything
