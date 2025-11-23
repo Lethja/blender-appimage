@@ -1,4 +1,4 @@
-name: Create All
+name: Blender LTS AppImage Builds
 
 on: workflow_dispatch
 

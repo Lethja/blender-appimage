@@ -1,3 +1,5 @@
+[![Blender LTS AppImage Builds](https://github.com/Lethja/blender-appimage/actions/workflows/manifest.yml/badge.svg)](https://github.com/Lethja/blender-appimage/actions/workflows/manifest.yml)
+
 # Summary
 
 If you need to run a version of Blender on Linux
