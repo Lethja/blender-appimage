@@ -5,13 +5,13 @@ download_and_verify() {
 	local hashUri="$2"
 
 	if [ -n "$hashUri" ]; then
-		if [ ! -f "${hashUri##*/}" ]; then
+		if [ ! -f "data/${hashUri##*/}" ]; then
 			echo "Downloading $hashUri..."
 			wget -O "data/${hashUri##*/}" "$hashUri" || exit 1
 		fi
 	fi
 
-	if [ ! -f "${fileUri##*/}" ]; then
+	if [ ! -f "data/${fileUri##*/}" ]; then
 		echo "Downloading $fileUri..."
 		wget -O "data/${fileUri##*/}" "$fileUri" || exit 1
 	fi
@@ -78,7 +78,7 @@ if [[ ! -f "$OUTPUT" ]]; then exit 1; fi
 
 chmod +x "$OUTPUT"
 
-echo "Zipping $OUTPUT into ${OUTPUT}.zip..."
+echo "Zipping $OUTPUT into zip/${OUTPUT}.zip..."
 
 zip -0 "zip/${OUTPUT}.zip" "$OUTPUT"
 
@@ -86,4 +86,4 @@ echo "Cleaning up..."
 
 rm -R AppDir "$OUTPUT"
 
-echo "$OUTPUT successfully made and stored in ${OUTPUT}.zip"
+echo "$OUTPUT successfully made and stored in zip/${OUTPUT}.zip"
