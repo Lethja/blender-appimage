@@ -112,6 +112,9 @@ Example:
 ```shell
 ./mkAppImg.sh https://download.blender.org/release/Blender2.79/release279.md5 https://download.blender.org/release/Blender2.79/blender-2.79-linux-glibc219-x86_64.tar.bz2
 ```
+```shell
+./mkAppImg.sh https://download.blender.org/release/Blender5.0/blender-5.0.0.sha256 https://download.blender.org/release/Blender5.0/blender-5.0.0-linux-x64.tar.xz
+```
 
 You can also use this method to access an alternative mirror
 if the default `download.blender.org` is not accessible or missing a file.
