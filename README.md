@@ -70,7 +70,8 @@ Run the manifest script in a terminal
 ./manifest.sh
 ```
 
-A selection list similar to this will appear:
+If the `dialog` command is installed then a checkbox list will be displayed, 
+if not; a selection list similar to this will appear:
 
 ```
 0: blender-2.79b-linux-glibc219-i686
