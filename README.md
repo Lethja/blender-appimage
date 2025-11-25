@@ -90,6 +90,10 @@ For example, typing `0 6 5` to the list above will build an AppImage
 of `blender-2.79b-linux-glibc219-i686`, `blender-4.2.2-linux-x64` 
 and `blender-3.6.16-linux-x64` in that order. 
 
+If you already know which number(s) of the AppImages
+you want to build, you can pass them as parameter(s)
+like `./manifest.sh 0 6 5` to skip the menu.
+
 The AppImage will be created and stored in a zip automatically.
 Storing an AppImage in a zip archive
 will preserve the files executable permission.
