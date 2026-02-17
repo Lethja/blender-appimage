@@ -105,6 +105,7 @@ and feel more familiar to macOS and Windows users.
 
 Due to the sheer number of releases Blender has
 `manifest.sh` will only list the latest version in each LTS release
+and the latest upstream release;
 as listing every build ever would be impractical.
 
 To create an AppImage of a Blender version
