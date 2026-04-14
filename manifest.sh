@@ -26,8 +26,8 @@ https://download.blender.org/release/Blender4.2/blender-4.2.19-linux-x64.tar.xz"
 manifest[7]="https://download.blender.org/release/Blender4.5/blender-4.5.8.sha256 \
 https://download.blender.org/release/Blender4.5/blender-4.5.8-linux-x64.tar.xz"
 
-manifest[8]="https://download.blender.org/release/Blender5.1/blender-5.1.0.sha256 \
-https://download.blender.org/release/Blender5.1/blender-5.1.0-linux-x64.tar.xz"
+manifest[8]="https://download.blender.org/release/Blender5.1/blender-5.1.1.sha256 \
+https://download.blender.org/release/Blender5.1/blender-5.1.1-linux-x64.tar.xz"
 
 print_options_dialog() {
 	local choices text dialog_options=()
