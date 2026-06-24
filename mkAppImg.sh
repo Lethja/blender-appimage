@@ -51,7 +51,7 @@ if ! mkdir -p data zip; then echo "Couldn't create folders"; exit 1; fi
 MARCH="$MARCH" ./dlAppImg.sh
 download_and_verify "$2" "$1"
 
-echo "Extracting $TAR_NAME"
+echo "Extracting data/$TAR_NAME"
 
 # Always work on a fresh extraction
 if [ -e "AppDir" ]; then rm -R "AppDir"; fi
@@ -82,7 +82,7 @@ echo "Zipping $OUTPUT into zip/${OUTPUT}.zip..."
 
 zip -0 "zip/${OUTPUT}.zip" "$OUTPUT"
 
-echo "Cleaning up..."
+echo "Cleaning up $OUTPUT..."
 
 rm -R AppDir "$OUTPUT"
 
