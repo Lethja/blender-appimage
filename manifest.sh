@@ -20,11 +20,11 @@ https://download.blender.org/release/Blender3.3/blender-3.3.21-linux-x64.tar.xz"
 manifest[5]="https://download.blender.org/release/Blender3.6/blender-3.6.23.sha256 \
 https://download.blender.org/release/Blender3.6/blender-3.6.23-linux-x64.tar.xz"
 
-manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.22.sha256 \
-https://download.blender.org/release/Blender4.2/blender-4.2.22-linux-x64.tar.xz"
+manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.23.sha256 \
+https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz"
 
-manifest[7]="https://download.blender.org/release/Blender4.5/blender-4.5.11.sha256 \
-https://download.blender.org/release/Blender4.5/blender-4.5.11-linux-x64.tar.xz"
+manifest[7]="https://download.blender.org/release/Blender4.5/blender-4.5.12.sha256 \
+https://download.blender.org/release/Blender4.5/blender-4.5.12-linux-x64.tar.xz"
 
 manifest[8]="https://download.blender.org/release/Blender5.2/blender-5.2.0.sha256 \
 https://download.blender.org/release/Blender5.2/blender-5.2.0-linux-x64.tar.xz"
