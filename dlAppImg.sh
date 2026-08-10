@@ -1,5 +1,7 @@
 #!/bin/bash
 
+if [ "$(id -u)" -eq 0 ]; then echo "Never run this script as root"; exit 1; fi
+
 : "${MARCH:=$(uname -m)}" # This is the host machines architecture, not the appimage runtime
 : "${NAME:=appimagetool-$MARCH.AppImage}"
 

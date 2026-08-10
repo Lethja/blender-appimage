@@ -1,5 +1,7 @@
 #!/bin/bash
 
+if [ "$(id -u)" -eq 0 ]; then echo "Never run this script as root"; exit 1; fi
+
 download_and_verify() {
 	local fileUri="$1"
 	local hashUri="$2"

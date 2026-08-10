@@ -1,5 +1,7 @@
 #!/bin/bash
 
+if [ "$(id -u)" -eq 0 ]; then echo "Never run this script as root"; exit 1; fi
+
 # manifest[x]="checksum-url tarball-url"
 
 manifest[0]="https://download.blender.org/release/Blender2.79/release279b.sha256 \
