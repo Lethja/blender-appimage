@@ -34,7 +34,7 @@ https://download.blender.org/release/Blender5.2/blender-5.2.1-linux-x64.tar.xz"
 print_options_dialog() {
 	local choices text dialog_options=()
 
-	for ((i = 0; i < ${#manifest[@]}; i++)); do
+	for ((i = ${#manifest[@]} - 1; i > -1; i--)); do
   		read -r -a urls <<< "${manifest[$i]}"
   		url="${urls[1]}"
   		filename="${url##*/}"
