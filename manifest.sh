@@ -25,11 +25,11 @@ https://download.blender.org/release/Blender3.6/blender-3.6.23-linux-x64.tar.xz"
 manifest[6]="https://download.blender.org/release/Blender4.2/blender-4.2.23.sha256 \
 https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz"
 
-manifest[7]="https://download.blender.org/release/Blender4.5/blender-4.5.14.sha256 \
-https://download.blender.org/release/Blender4.5/blender-4.5.14-linux-x64.tar.xz"
+manifest[7]="https://download.blender.org/release/Blender4.5/blender-4.5.15.sha256 \
+https://download.blender.org/release/Blender4.5/blender-4.5.15-linux-x64.tar.xz"
 
-manifest[8]="https://download.blender.org/release/Blender5.2/blender-5.2.2.sha256 \
-https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz"
+manifest[8]="https://download.blender.org/release/Blender5.2/blender-5.2.3.sha256 \
+https://download.blender.org/release/Blender5.2/blender-5.2.3-linux-x64.tar.xz"
 
 print_options_dialog() {
 	local choices text dialog_options=()
