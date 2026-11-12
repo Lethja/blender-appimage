@@ -69,6 +69,10 @@ else
 	create_apprun_script "AppDir/AppRun" "blender"
 fi
 
+# Append Blender version to desktop file incase of installation.
+VERSION=${OUTPUT#blender-}; VERSION=${VERSION%%-*}
+sed -i "s/Name=Blender/Name=Blender ${VERSION}/" "AppDir/blender.desktop"
+
 # Add X- in front of desktop entries to make appimage happy
 sed -i 's/PrefersNonDefaultGPU/X-PrefersNonDefaultGPU/' "AppDir/blender.desktop"
 
